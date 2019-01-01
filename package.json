@@ -2,9 +2,17 @@
   "name": "@vitorluizc/animate",
   "version": "0.0.0",
   "description": "Create and manage animations with AnimationFrame API.",
-  "main": "index.js",
+  "cdn": "dist/animate.js",
+  "main": "dist/animate.cjs.js",
+  "types": "dist/animate.d.ts",
+  "unpkg": "dist/animate.js",
+  "module": "dist/animate.es.js",
+  "jsdelivr": "dist/animate.js",
+  "umd:main": "dist/animate.js",
+  "files": ["dist/"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && bili dist/animate.js --format es,cjs,umd,umd-min"
   },
   "repository": {
     "type": "git",
@@ -31,5 +39,9 @@
   "bugs": {
     "url": "https://github.com/VitorLuizC/animate/issues"
   },
-  "homepage": "https://github.com/VitorLuizC/animate#readme"
+  "homepage": "https://github.com/VitorLuizC/animate#readme",
+  "devDependencies": {
+    "bili": "^3.4.2",
+    "typescript": "^3.2.2"
+  }
 }
