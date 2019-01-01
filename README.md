@@ -2,7 +2,7 @@
 
 Create and manage animation functions with AnimationFrame API and a state.
 
-- :zap: Dependency free and smaller than **160B** (minified + gzipped);
+- :zap: Dependency free and smaller than **170B** (minified + gzipped);
 - :label: Type definitions to TS developers and IDE/Editors intellisense;
 - :package: CommonJS, ESM and UMD distributions (_CDN uses UMD as default_);
 
