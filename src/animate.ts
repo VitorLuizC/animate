@@ -1,5 +1,17 @@
 export interface Animation {
+  /**
+   * A getter property that indicates if animation is running.
+   */
+  readonly running: boolean;
+
+  /**
+   * Stops the animation.
+   */
   stop (): void;
+
+  /**
+   * Starts the animation.
+   */
   start (): void;
 }
 
@@ -26,19 +38,22 @@ const animate = <S>(animation: (state: S | undefined) => S): Animation => {
   let state: S | undefined;
   let handle: number | undefined;
 
-  const run = (): void => {
+  const run = () => {
     state = animation(state);
     handle = requestAnimationFrame(run);
   };
 
   return {
-    stop (): void {
-      if (handle === undefined)
-        return;
-      handle = void cancelAnimationFrame(handle);
+    get running () {
+      return handle === undefined;
     },
-    start (): void {
-      if (handle !== undefined)
+    stop () {
+      if (this.running)
+        return;
+      handle = void cancelAnimationFrame(handle as number);
+    },
+    start () {
+      if (!this.running)
         return;
       run();
     }
