@@ -1,5 +1,11 @@
 # `@vitorluizc/animate`
 
+Create and manage animation functions with AnimationFrame API and a state.
+
+- :zap: Dependency free and smaller than **160B** (minified + gzipped);
+- :label: Type definitions to TS developers and IDE/Editors intellisense;
+- :package: CommonJS, ESM and UMD distributions (_CDN uses UMD as default_);
+
 ## Usage
 
 Call `animate`, the default exported function, with your animation function as argument.
