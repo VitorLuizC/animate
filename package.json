@@ -1,0 +1,35 @@
+{
+  "name": "@vitorluizc/animate",
+  "version": "0.0.0",
+  "description": "Create and manage animations with AnimationFrame API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorLuizC/animate.git"
+  },
+  "keywords": [
+    "animation",
+    "requestanimationframe",
+    "request-animation-frame",
+    "animationframe",
+    "animation-frame",
+    "game-loop",
+    "gameloop",
+    "loop",
+    "interval",
+    "timeout"
+  ],
+  "author": {
+    "url": "https://vitorluizc.github.io/",
+    "name": "Vitor Luiz Cavalcanti",
+    "email": "vitorluizc@outlook.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VitorLuizC/animate/issues"
+  },
+  "homepage": "https://github.com/VitorLuizC/animate#readme"
+}
