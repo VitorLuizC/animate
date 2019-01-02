@@ -45,15 +45,15 @@ const animate = <S>(animation: (state: S | undefined) => S): Animation => {
 
   return {
     get running () {
-      return handle === undefined;
+      return handle !== undefined;
     },
     stop () {
-      if (this.running)
+      if (!this.running)
         return;
       handle = void cancelAnimationFrame(handle as number);
     },
     start () {
-      if (!this.running)
+      if (this.running)
         return;
       run();
     }
