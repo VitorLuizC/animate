@@ -1,6 +1,9 @@
 # `@vitorluizc/animate`
 
 [![Build Status](https://travis-ci.org/VitorLuizC/animate.svg?branch=master)](https://travis-ci.org/VitorLuizC/animate)
+![License](https://badgen.net/github/license/VitorLuizC/animate)
+[![Library minified size](https://badgen.net/bundlephobia/min/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
+[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
 
 Create and manage animation functions with AnimationFrame API and a state.
 
