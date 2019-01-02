@@ -5,11 +5,15 @@
 [![Library minified size](https://badgen.net/bundlephobia/min/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
 [![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
 
+[![Animate bubbles example GIF](https://media.giphy.com/media/2m1XKOwntE7SbuIyWH/giphy.gif)](https://codepen.io/VitorLuizC/full/WLddER)
+
 Create and manage animation functions with AnimationFrame API and a state.
 
 - :zap: Dependency free and smaller than **170B** (minified + gzipped);
 - :label: Type definitions to TS developers and IDE/Editors intellisense;
 - :package: CommonJS, ESM and UMD distributions (_CDN uses UMD as default_);
+
+#### See bubbles example at [Codepen](https://codepen.io/VitorLuizC/full/WLddER)
 
 ## Installation
 
