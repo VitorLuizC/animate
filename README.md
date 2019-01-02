@@ -1,5 +1,7 @@
 # `@vitorluizc/animate`
 
+[![Build Status](https://travis-ci.org/VitorLuizC/animate.svg?branch=master)](https://travis-ci.org/VitorLuizC/animate)
+
 Create and manage animation functions with AnimationFrame API and a state.
 
 - :zap: Dependency free and smaller than **170B** (minified + gzipped);
