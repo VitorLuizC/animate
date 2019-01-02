@@ -36,7 +36,7 @@ animation.start();
 
   The default exported function, which receives an _animation function_ as argument and returns an **`Animation`**.
 
-  - The _animation function_ is a synchronous function running into a AnimationFrame recursion that receives a kind of state as argument and return it to next function.
+  - The _animation function_ is a synchronous function running into a AnimationFrame recursion that receives state as argument and return it to next function.
 
   ```js
   const INITIAL_STATE = 0;
