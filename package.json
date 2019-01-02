@@ -12,7 +12,8 @@
   "files": ["dist/"],
   "scripts": {
     "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava test/*.ts",
-    "build": "tsc && bili dist/animate.js --format es,cjs,umd,umd-min --js buble"
+    "build": "tsc && bili dist/animate.js --format es,cjs,umd,umd-min --js buble",
+    "prepare": "yarn test && yarn build"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,6 @@
   "keywords": [
     "animation",
     "requestanimationframe",
-    "request-animation-frame",
-    "animationframe",
-    "animation-frame",
     "game-loop",
     "gameloop",
     "loop",
