@@ -11,7 +11,7 @@
   "umd:main": "dist/animate.js",
   "files": ["dist/"],
   "scripts": {
-    "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava",
+    "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava test/*.ts",
     "build": "tsc && bili dist/animate.js --format es,cjs,umd,umd-min --js buble"
   },
   "repository": {
