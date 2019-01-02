@@ -6,6 +6,35 @@ Create and manage animation functions with AnimationFrame API and a state.
 - :label: Type definitions to TS developers and IDE/Editors intellisense;
 - :package: CommonJS, ESM and UMD distributions (_CDN uses UMD as default_);
 
+## Installation
+
+This library is published in the NPM registry and can be installed using any compatible package manager.
+
+```sh
+npm install @vitorluizc/animate --save
+
+# For Yarn, use the command below.
+yarn add @vitorluizc/animate
+```
+
+### Installation from CDN
+
+This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vitorluizc/animate"></script>
+
+<script>
+  // module will be available through `animate` function.
+
+  var animation = animate(function (state) {
+    // ...
+  });
+
+  animation.start();
+</script>
+```
+
 ## Usage
 
 Call `animate`, the default exported function, with your animation function as argument.
