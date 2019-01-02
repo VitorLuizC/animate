@@ -5,7 +5,7 @@
 [![Library minified size](https://badgen.net/bundlephobia/min/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
 [![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
 
-[![Animate bubbles example GIF](https://media.giphy.com/media/2m1XKOwntE7SbuIyWH/giphy.gif)](https://codepen.io/VitorLuizC/full/WLddER)
+[![Animate bubbles example GIF](https://user-images.githubusercontent.com/9027363/50610043-b251fe00-0eb8-11e9-9df4-f98da8c3beb0.gif)](https://codepen.io/VitorLuizC/full/WLddER)
 
 Create and manage animation functions with AnimationFrame API and a state.
 
