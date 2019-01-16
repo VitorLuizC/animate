@@ -1,6 +1,6 @@
 {
   "name": "@vitorluizc/animate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Create and manage animation functions with AnimationFrame API and a state.",
   "cdn": "dist/animate.js",
   "main": "dist/animate.cjs.js",
