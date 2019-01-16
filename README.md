@@ -36,7 +36,7 @@ This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 <script>
   // module will be available through `animate` function.
 
-  var animation = animate(function (state) {
+  var animation = animate(function () {
     // ...
   });
 
