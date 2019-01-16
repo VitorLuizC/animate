@@ -7,9 +7,9 @@
 
 [![Animate bubbles example GIF](https://user-images.githubusercontent.com/9027363/50610043-b251fe00-0eb8-11e9-9df4-f98da8c3beb0.gif)](https://codepen.io/VitorLuizC/full/WLddER)
 
-Create and manage animation functions with AnimationFrame API and a state.
+Create and manage animation functions with AnimationFrame API.
 
-- :zap: Dependency free and smaller than **170B** (minified + gzipped);
+- :zap: Dependency free and smaller than **170B** (ESM minified + gzipped);
 - :label: Type definitions to TS developers and IDE/Editors intellisense;
 - :package: CommonJS, ESM and UMD distributions (_CDN uses UMD as default_);
 
@@ -46,49 +46,58 @@ This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 
 ## Usage
 
-Call `animate`, the default exported function, with your animation function as argument.
+Call `animate`, the default exported function, with your callback and use returned object to manage your animation.
 
 ```js
 import animate from '@vitorluizc/animate';
 
-// ...
+const canvas = document.querySelector('canvas');
+const context = canvas.getContext('2d');
+const position = { x: 0, y : 0 };
 
-const INITIAL_STATE = { count: 0 };
+const animation = animate(() => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.arc(position.x, position.y, 100 / 2, 0, 2 * Math.PI);
+  context.fillStyle = '#000000';
+  context.fill();
+  context.closePath();
+});
 
-const animation = animate(({ count } = INITIAL_STATE) => {
-  if (count === 1000)
-    return animation.stop();
-
-  context.clearRect(0, 0, width, height);
-  context.textAlign = "center";
-  context.fillText(~~count, width / 2, height / 2);
-  return { count: count + 0.25 };
+window.addEventListener('mousemove', (event) => {
+  position.x = event.clientX;
+  position.y = event.clientY;
 });
 
 animation.start();
 ```
 
+> See this example on [Codepen](https://codepen.io/VitorLuizC/pen/jXRzVp).
+
 ## API
 
 - **`animate`**
 
-  The default exported function, which receives an _animation function_ as argument and returns an **`Animation`**.
+  The default exported function, which receives `callback` as argument and returns an **`Animation`**.
 
-  - The _animation function_ is a synchronous function running into a AnimationFrame recursion that receives state as argument and return it to next function.
+  - `callback` is a **synchronous function** running into a AnimationFrame recursion.
 
   ```js
-  const INITIAL_STATE = 0;
+  let count = 0;
 
-  const animation = animate((state = INITIAL_STATE) => {
-    if (state === 1000)
-      return animation.stop();
-
+  const animation = animate(() => {
     context.clearRect(0, 0, element.width, element.height);
-    context.textAlign = "center";
-    context.fillText(state, element.width / 2, element.height / 2);
-    return state + 1;
+    context.font = "4rem monospace";
+    context.textAlign = 'center';
+    context.fillText(count, element.width / 2, element.height / 2);
+
+    count++;
   });
+
+  animation.start();
   ```
+
+  > See this example on [Codepen](https://codepen.io/VitorLuizC/pen/yGrvzP).
 
   <details>
     <summary>TypeScript type definitions.</summary>
@@ -96,9 +105,7 @@ animation.start();
   <br />
 
   ```ts
-  declare const animate: <S>(animation: (state: S | undefined) => S) => Animation;
-
-  export default animate;
+  export default function animate(callback: () => void): Animation;
   ```
   </details>
 
@@ -106,8 +113,14 @@ animation.start();
 
   An object returned by **`animate`** function to manage your animations. It can start, stop and check if animation is running.
 
+  - **`running`**: A getter property that indicates if animation is running.
+
+  - **`start()`**: A method to start the animation.
+
+  - **`stop()`**: A method to stop the animation.
+
   ```js
-  const animation = animate((state) => { ... });
+  const animation = animate(() => { ... });
 
   animation.start();
 
@@ -126,17 +139,11 @@ animation.start();
   ```ts
   export interface Animation {
     readonly running: boolean;
-    stop (): void;
-    start (): void;
+    stop: () => void;
+    start: () => void;
   }
   ```
   </details>
-
-  - **`running`**: A getter property that indicates if animation is running.
-
-  - **`start()`**: A method to start the animation.
-
-  - **`stop()`**: A method to stop the animation.
 
 ## License
 
