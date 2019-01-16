@@ -7,39 +7,36 @@ export interface Animation {
   /**
    * Stops the animation.
    */
-  stop (): void;
+  stop: () => void;
 
   /**
    * Starts the animation.
    */
-  start (): void;
+  start: () => void;
 }
 
 /**
- * Creates an Animation object to start and stop your animation functions. It
- * also pass state through the animation function executions.
+ * Creates an Animation object to start and stop your animation functions.
  * @example ```js
- * const INITIAL_STATE = { count: 0 };
+ * const count = 0;
  *
- * const animation = animate(({ count } = INITIAL_STATE) => {
- *   if (count === 1000)
- *     return animation.stop();
- *
+ * const animation = createAnimation(() => {
  *   context.clearRect(0, 0, width, height);
+ *   context.font = "4rem monospace";
  *   context.textAlign = 'center';
  *   context.fillText(count, width / 2, height / 2);
- *   return { count: count + 1 };
+ *
+ *   count++;
  * });
  *
  * animation.start();```
- * @param callback - A callback to handle animation and, optionally, its state.
+ * @param callback - A callback to handle animation.
  */
-function createAnimation <S>(callback: (state: S | undefined) => S): Animation {
-  let state: S | undefined;
+export default function animate (callback: () => void): Animation {
   let handle: number | undefined;
 
   const run = () => {
-    state = callback(state);
+    callback();
     handle = requestAnimationFrame(run);
   };
 
@@ -60,5 +57,3 @@ function createAnimation <S>(callback: (state: S | undefined) => S): Animation {
     }
   };
 };
-
-export default createAnimation;

@@ -16,47 +16,9 @@ test('API: animate returns Animation', (context) => {
   context.is(typeof animation.running, 'boolean');
 });
 
-test('animate: pass state through animation functions', async (context) => {
-  const INITIAL_STATE = 0;
-  let state = INITIAL_STATE;
-
-  const animation = animate<number>((_state = INITIAL_STATE) => {
-    _state++;
-    state = _state;
-    return state;
-  });
-
-  context.is(state, INITIAL_STATE);
-
-  animation.start();
-
-  context.is(state, 1);
-
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
-  const current = state;
-  context.not(state, 1);
-
-  animation.stop();
-
-  context.is(state, current);
-
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
-  context.is(state, current);
-
-  animation.start();
-
-  context.is(state, current + 1);
-
-  animation.stop();
-
-  context.is(state, current + 1);
-});
-
 test('Animation: start() starts not running animations', async (context) => {
   let state = 0;
-  const animation: Animation = animate(() => void (state = state + 1));
+  const animation: Animation = animate(() => state++);
 
   context.is(state, 0);
   context.false(animation.running);
@@ -87,7 +49,7 @@ test('Animation: start() starts not running animations', async (context) => {
 
 test('Animation: stop() staps running animations', async (context) => {
   let state = 0;
-  const animation: Animation = animate(() => void (state = state + 1));
+  const animation: Animation = animate(() => state++);
 
   context.is(state, 0);
   context.false(animation.running);
@@ -141,7 +103,7 @@ test('Animation: stop() staps running animations', async (context) => {
 
 test('Animation: running indicates if animation is running', async (context) => {
   let state = 0;
-  const animation: Animation = animate(() => void (state = state + 1));
+  const animation: Animation = animate(() => state++);
 
   context.is(state, 0);
   context.false(animation.running, 'is false before animation.start()');
