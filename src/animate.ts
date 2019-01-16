@@ -32,14 +32,14 @@ export interface Animation {
  * });
  *
  * animation.start();```
- * @param animation - A function to handle animation and a state (optionally).
+ * @param callback - A callback to handle animation and, optionally, its state.
  */
-const animate = <S>(animation: (state: S | undefined) => S): Animation => {
+function createAnimation <S>(callback: (state: S | undefined) => S): Animation {
   let state: S | undefined;
   let handle: number | undefined;
 
   const run = () => {
-    state = animation(state);
+    state = callback(state);
     handle = requestAnimationFrame(run);
   };
 
@@ -50,7 +50,8 @@ const animate = <S>(animation: (state: S | undefined) => S): Animation => {
     stop () {
       if (!this.running)
         return;
-      handle = void cancelAnimationFrame(handle as number);
+      cancelAnimationFrame(handle!);
+      handle = undefined;
     },
     start () {
       if (this.running)
@@ -60,4 +61,4 @@ const animate = <S>(animation: (state: S | undefined) => S): Animation => {
   };
 };
 
-export default animate;
+export default createAnimation;
