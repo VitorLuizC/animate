@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/VitorLuizC/animate#readme",
   "devDependencies": {
-    "ava": "^1.0.1",
+    "ava": "^1.1.0",
     "bili": "^3.4.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
