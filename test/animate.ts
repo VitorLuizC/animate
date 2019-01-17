@@ -1,6 +1,8 @@
-import './util/AnimationFrame';
-import test from 'ava';
+import test, { beforeEach } from 'ava';
 import animate, { Animation } from '../src/animate';
+import { applyAnimationFramePolyfill, timeBetweenFrames } from './util/AnimationFramePolyfill';
+
+beforeEach(() => applyAnimationFramePolyfill());
 
 test('API: module default exports a function', (context) => {
   context.is(typeof animate, 'function');
@@ -99,6 +101,51 @@ test('Animation: stop() staps running animations', async (context) => {
 
   context.is(state, current);
   context.false(animation.running);
+});
+
+test('Animation: stop() on callback stops the animation', async (context) => {
+  const animation: Animation = animate(() => animation.stop());
+
+  context.false(animation.running);
+
+  animation.start();
+
+  context.false(animation.running);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  context.false(animation.running);
+});
+
+test('Animation: stop() and immediatly start() does not create multiple animations', async (context) => {
+  let state = 0;
+  let timeA = 0;
+  let timeB = 0;
+
+  const animation: Animation = animate(() => {
+    state++;
+
+    if (state < 2)
+      animation.start();
+
+    if (state % 2 === 1)
+      timeB = Date.now();
+    else
+      timeA = Date.now();
+  });
+
+  animation.start();
+
+  context.true(animation.running);
+  context.is(state, 2);
+
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  animation.stop();
+
+  context.false(animation.running);
+  context.not(state, 2);
+  context.true(timeBetweenFrames < Math.abs(timeA - timeB));
 });
 
 test('Animation: running indicates if animation is running', async (context) => {
