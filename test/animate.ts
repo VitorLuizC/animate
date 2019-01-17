@@ -137,7 +137,7 @@ test('Animation: stop() and immediatly start() does not create multiple animatio
   animation.start();
 
   context.true(animation.running);
-  context.is(state, 2);
+  context.is(state, 1);
 
   await new Promise((resolve) => setTimeout(resolve, 500));
 

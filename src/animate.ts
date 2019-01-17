@@ -33,26 +33,29 @@ export interface Animation {
  * @param callback - A callback to handle animation.
  */
 export default function animate (callback: () => void): Animation {
-  let handle: number | undefined;
+  let handle: number | void;
+  let running = false;
 
   const run = () => {
     callback();
-    handle = requestAnimationFrame(run);
+    if (running)
+      handle = requestAnimationFrame(run);
   };
 
   return {
     get running () {
-      return handle !== undefined;
+      return running;
     },
     stop () {
-      if (!this.running)
+      if (!running)
         return;
-      cancelAnimationFrame(handle!);
-      handle = undefined;
+      handle = handle && cancelAnimationFrame(handle);
+      running = false;
     },
     start () {
-      if (this.running)
+      if (running)
         return;
+      running = true;
       run();
     }
   };
