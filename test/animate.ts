@@ -12,20 +12,6 @@ beforeEach(() => {
   } as any;
 });
 
-test('API: module default exports a function', (context) => {
-  context.is(typeof animate, 'function');
-});
-
-test('API: animate returns Animation', (context) => {
-  const animation: Animation = animate(() => undefined);
-
-  context.truthy(animation);
-  context.is(typeof animation, 'object');
-  context.is(typeof animation.stop, 'function');
-  context.is(typeof animation.start, 'function');
-  context.is(typeof animation.running, 'boolean');
-});
-
 test('Animation: start() starts not running animations', async (context) => {
   let state = 0;
   const animation: Animation = animate(() => state++);
@@ -57,7 +43,7 @@ test('Animation: start() starts not running animations', async (context) => {
   animation.stop();
 });
 
-test('Animation: stop() staps running animations', async (context) => {
+test('Animation: stop() stops running animations', async (context) => {
   let state = 0;
   const animation: Animation = animate(() => state++);
 
@@ -125,7 +111,7 @@ test('Animation: stop() on callback stops the animation', async (context) => {
   context.false(animation.running);
 });
 
-test('Animation: stop() and immediatly start() does not create multiple animations', async (context) => {
+test('Animation: stop() and immediately start() does not create multiple animations', async (context) => {
   let state = 0;
   let timeA = 0;
   let timeB = 0;
