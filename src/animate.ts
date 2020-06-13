@@ -17,7 +17,7 @@ export interface Animation {
 
 /**
  * Creates an Animation object to start and stop your animation functions.
- * @example ```js
+ * @example
  * const count = 0;
  *
  * const animation = createAnimation(() => {
@@ -29,7 +29,7 @@ export interface Animation {
  *   count++;
  * });
  *
- * animation.start();```
+ * animation.start();
  * @param callback - A callback to handle animation.
  */
 export default function animate(callback: () => void): Animation {
