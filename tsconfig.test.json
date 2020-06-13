@@ -1,7 +1,11 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node"
-  }
+    "module": "CommonJS",
+    "target": "ESNext",
+
+    // Lib and packages used for typings
+    "lib": ["ESNext", "DOM"]
+  },
+  "include": ["./src/**/*.ts", "./test/**/*.ts"]
 }

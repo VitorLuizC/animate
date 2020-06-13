@@ -12,7 +12,7 @@
   "files": ["dist/"],
   "scripts": {
     "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava test/*.ts",
-    "build": "tsc && bili dist/animate.js --format es,cjs,umd,umd-min --js buble",
+    "build": "tsc -p ./tsconfig.build.json && bili dist/animate.js --format es,cjs,umd,umd-min --js buble",
     "prepare": "yarn test && yarn build"
   },
   "repository": {
@@ -42,7 +42,7 @@
     "ava": "^1.1.0",
     "bili": "^3.4.2",
     "ts-node": "^7.0.1",
-    "typescript": "^3.2.2"
+    "typescript": "^3.9.5"
   },
   "ava": {
     "require": ["ts-node/register"],
