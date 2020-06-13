@@ -1,11 +1,16 @@
 import test, { beforeEach } from 'ava';
 import animate, { Animation } from '../src/animate';
-import {
-  applyAnimationFramePolyfill,
-  timeBetweenFrames,
-} from './util/AnimationFramePolyfill';
 
-beforeEach(() => applyAnimationFramePolyfill());
+const TIME_BETWEEN_FRAMES = 1000 / 16;
+
+beforeEach(() => {
+  globalThis.window = {
+    cancelAnimationFrame: clearTimeout,
+    requestAnimationFrame: (callback: () => void) => {
+      return setTimeout(callback, TIME_BETWEEN_FRAMES);
+    },
+  } as any;
+});
 
 test('API: module default exports a function', (context) => {
   context.is(typeof animate, 'function');
@@ -145,7 +150,7 @@ test('Animation: stop() and immediatly start() does not create multiple animatio
 
   context.false(animation.running);
   context.not(state, 2);
-  context.true(timeBetweenFrames < Math.abs(timeA - timeB));
+  context.true(TIME_BETWEEN_FRAMES <= Math.abs(timeA - timeB));
 });
 
 test('Animation: running indicates if animation is running', async (context) => {
