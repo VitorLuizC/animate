@@ -8,8 +8,12 @@
 node_modules/
 
 # NPM's lockfile.
-# We're using Yarn and it provides it's own lockfile.
+# We're using PNPM and it provides its own lockfile.
 npm-lockfile.json
+
+# Yarn's lockfile
+# We're using PNPM and it provides its own lockfile.
+yarn.lock
 
 # Log's files.
 *.log

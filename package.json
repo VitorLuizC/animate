@@ -12,8 +12,10 @@
   "files": ["dist/"],
   "scripts": {
     "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava test/*.ts",
-    "build": "tsc -p ./tsconfig.build.json && bili dist/animate.js --format es,cjs,umd,umd-min --js buble",
-    "prepare": "yarn test && yarn build"
+    "build": "pnpm run build:transpile && pnpm run build:bundle",
+    "build:transpile": "tsc -p ./tsconfig.build.json",
+    "build:bundle": "bili dist/animate.js --format es,cjs,umd,umd-min --js buble",
+    "prepublishOnly": "pnpm run test && pnpm run build"
   },
   "repository": {
     "type": "git",
