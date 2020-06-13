@@ -1,3 +1,10 @@
+/**
+ * @typedef {Object} Animation
+ * @property {Boolean} running - Getter that indicates if animation is running.
+ * @property {function():void} stop - Stops the animation.
+ * @property {function():void} start - Starts the animation.
+ */
+
 export interface Animation {
   /**
    * A getter property that indicates if animation is running.
@@ -31,6 +38,7 @@ export interface Animation {
  *
  * animation.start();
  * @param {function():void} callback - A callback to handle animation.
+ * @returns {Animation}
  */
 export default function animate(callback: () => void): Animation {
   let handle: number | null = null;
