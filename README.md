@@ -1,9 +1,9 @@
-# `@vitorluizc/animate`
+# `@bitty/animate`
 
 [![Build Status](https://travis-ci.org/VitorLuizC/animate.svg?branch=master)](https://travis-ci.org/VitorLuizC/animate)
 ![License](https://badgen.net/github/license/VitorLuizC/animate)
-[![Library minified size](https://badgen.net/bundlephobia/min/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
-[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/@vitorluizc/animate)](https://bundlephobia.com/result?p=@vitorluizc/animate)
+[![Library minified size](https://badgen.net/bundlephobia/min/@bitty/animate)](https://bundlephobia.com/result?p=@bitty/animate)
+[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/@bitty/animate)](https://bundlephobia.com/result?p=@bitty/animate)
 
 [![Animate bubbles example GIF](https://user-images.githubusercontent.com/9027363/50610043-b251fe00-0eb8-11e9-9df4-f98da8c3beb0.gif)](https://codepen.io/VitorLuizC/full/WLddER)
 
@@ -31,7 +31,7 @@ yarn add @vitorluizc/animate
 This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@vitorluizc/animate"></script>
+<script src="https://cdn.jsdelivr.net/npm/@bitty/animate"></script>
 
 <script>
   // module will be available through `animate` function.
@@ -49,7 +49,7 @@ This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 Call `animate`, the default exported function, with your callback and use returned object to manage your animation.
 
 ```js
-import animate from '@vitorluizc/animate';
+import animate from '@bitty/animate';
 
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');

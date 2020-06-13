@@ -1,5 +1,5 @@
 {
-  "name": "@vitorluizc/animate",
+  "name": "@bitty/animate",
   "version": "2.0.2",
   "description": "Create and manage animation functions with AnimationFrame API.",
   "cdn": "dist/animate.js",
