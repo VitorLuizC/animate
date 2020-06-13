@@ -9,8 +9,12 @@
   "module": "dist/animate.es.js",
   "jsdelivr": "dist/animate.js",
   "umd:main": "dist/animate.js",
-  "files": ["dist/"],
+  "files": [
+    "dist/"
+  ],
   "scripts": {
+    "lint": "prettier --check \"{src,test}/**/*.ts\"",
+    "lint:fix": "prettier --write \"{src,test}/**/*.ts\"",
     "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava test/*.ts",
     "build": "pnpm run build:transpile && pnpm run build:bundle",
     "build:transpile": "tsc -p ./tsconfig.build.json",
@@ -43,12 +47,17 @@
   "devDependencies": {
     "ava": "^1.1.0",
     "bili": "^3.4.2",
+    "prettier": "^2.0.5",
     "ts-node": "^7.0.1",
     "typescript": "^3.9.5"
   },
   "ava": {
-    "require": ["ts-node/register"],
-    "extensions": ["ts"],
+    "require": [
+      "ts-node/register"
+    ],
+    "extensions": [
+      "ts"
+    ],
     "compileEnhancements": false
   }
 }

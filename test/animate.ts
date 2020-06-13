@@ -1,6 +1,9 @@
 import test, { beforeEach } from 'ava';
 import animate, { Animation } from '../src/animate';
-import { applyAnimationFramePolyfill, timeBetweenFrames } from './util/AnimationFramePolyfill';
+import {
+  applyAnimationFramePolyfill,
+  timeBetweenFrames,
+} from './util/AnimationFramePolyfill';
 
 beforeEach(() => applyAnimationFramePolyfill());
 
@@ -125,13 +128,10 @@ test('Animation: stop() and immediatly start() does not create multiple animatio
   const animation: Animation = animate(() => {
     state++;
 
-    if (state < 2)
-      animation.start();
+    if (state < 2) animation.start();
 
-    if (state % 2 === 1)
-      timeB = Date.now();
-    else
-      timeA = Date.now();
+    if (state % 2 === 1) timeB = Date.now();
+    else timeA = Date.now();
   });
 
   animation.start();
