@@ -40,7 +40,7 @@ export default function animate(callback: () => void): Animation {
     if (!running) return;
 
     callback();
-    handle = requestAnimationFrame(run);
+    handle = window.requestAnimationFrame(run);
   };
 
   return {
@@ -51,7 +51,7 @@ export default function animate(callback: () => void): Animation {
       if (!running) return;
 
       if (handle) {
-        cancelAnimationFrame(handle);
+        window.cancelAnimationFrame(handle);
         handle = null;
       }
 
