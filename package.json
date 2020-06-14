@@ -2,23 +2,25 @@
   "name": "@bitty/animate",
   "version": "2.0.2",
   "description": "Create and manage animation functions with AnimationFrame API.",
-  "cdn": "dist/animate.js",
-  "main": "dist/animate.cjs.js",
-  "types": "dist/animate.d.ts",
-  "unpkg": "dist/animate.js",
-  "module": "dist/animate.es.js",
-  "jsdelivr": "dist/animate.js",
-  "umd:main": "dist/animate.js",
+  "cdn": "dist/animate.umd.js",
+  "main": "dist/animate.js",
+  "types": "types/animate.d.ts",
+  "unpkg": "dist/animate.umd.js",
+  "module": "dist/animate.esm.js",
+  "jsdelivr": "dist/animate.umd.js",
+  "umd:main": "dist/animate.umd.js",
   "files": [
-    "dist/"
+    "dist/",
+    "types/"
   ],
   "scripts": {
     "lint": "prettier --check \"{src,test}/**/*.ts\"",
     "lint:fix": "prettier --write \"{src,test}/**/*.ts\"",
-    "test": "TS_NODE_PROJECT=\"tsconfig.test.json\" ava test/*.ts",
+    "test": "pnpm run test:transpile && ava",
+    "test:transpile": "tsc --project ./tsconfig.test.json",
     "build": "pnpm run build:transpile && pnpm run build:bundle",
     "build:transpile": "tsc -p ./tsconfig.build.json",
-    "build:bundle": "bili dist/animate.js --format es,cjs,umd,umd-min --js buble",
+    "build:bundle": "rollup --config rollup.config.js",
     "prepublishOnly": "pnpm run test && pnpm run build"
   },
   "repository": {
@@ -45,19 +47,10 @@
   },
   "homepage": "https://github.com/VitorLuizC/animate#readme",
   "devDependencies": {
-    "ava": "^1.1.0",
-    "bili": "^3.4.2",
+    "ava": "^3.8.2",
     "prettier": "^2.0.5",
-    "ts-node": "^7.0.1",
+    "rollup": "^2.16.1",
+    "rollup-plugin-terser": "^6.1.0",
     "typescript": "^3.9.5"
-  },
-  "ava": {
-    "require": [
-      "ts-node/register"
-    ],
-    "extensions": [
-      "ts"
-    ],
-    "compileEnhancements": false
   }
 }

@@ -1,5 +1,5 @@
 import test, { beforeEach } from 'ava';
-import animate, { Animation } from '../src/animate';
+import animate, { Animation } from './animate';
 
 const TIME_BETWEEN_FRAMES = 1000 / 16;
 

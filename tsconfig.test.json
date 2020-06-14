@@ -7,5 +7,5 @@
     // Lib and packages used for typings
     "lib": ["ESNext", "DOM"]
   },
-  "include": ["./src/**/*.ts", "./test/**/*.ts"]
+  "include": ["./src/**/*.ts"]
 }
