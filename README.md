@@ -1,6 +1,5 @@
 # `@bitty/animate`
 
-[![Build Status](https://travis-ci.org/VitorLuizC/animate.svg?branch=master)](https://travis-ci.org/VitorLuizC/animate)
 ![License](https://badgen.net/github/license/VitorLuizC/animate)
 [![Library minified size](https://badgen.net/bundlephobia/min/@bitty/animate)](https://bundlephobia.com/result?p=@bitty/animate)
 [![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/@bitty/animate)](https://bundlephobia.com/result?p=@bitty/animate)
@@ -53,7 +52,7 @@ import animate from '@bitty/animate';
 
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
-const position = { x: 0, y : 0 };
+const position = { x: 0, y: 0 };
 
 const animation = animate(() => {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -87,7 +86,7 @@ animation.start();
 
   const animation = animate(() => {
     context.clearRect(0, 0, element.width, element.height);
-    context.font = "4rem monospace";
+    context.font = '4rem monospace';
     context.textAlign = 'center';
     context.fillText(count, element.width / 2, element.height / 2);
 
@@ -107,6 +106,7 @@ animation.start();
   ```ts
   export default function animate(callback: () => void): Animation;
   ```
+
   </details>
 
 - **`Animation`**
@@ -143,6 +143,7 @@ animation.start();
     start: () => void;
   }
   ```
+
   </details>
 
 ## License
