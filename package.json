@@ -1,6 +1,6 @@
 {
   "name": "@bitty/animate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Create and manage animation functions with AnimationFrame API.",
   "cdn": "dist/animate.umd.js",
   "main": "dist/animate.js",
