@@ -1,9 +1,9 @@
-import test, { beforeEach } from 'ava';
+import test from 'ava';
 import animate, { Animation } from './animate';
 
 const TIME_BETWEEN_FRAMES = 1000 / 16;
 
-beforeEach(() => {
+test.beforeEach(() => {
   globalThis.window = {
     cancelAnimationFrame: clearTimeout,
     requestAnimationFrame: (callback: () => void) => {
