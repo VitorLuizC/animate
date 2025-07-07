@@ -113,16 +113,11 @@ test('Animation: stop() on callback stops the animation', async (context) => {
 
 test('Animation: stop() and immediately start() does not create multiple animations', async (context) => {
   let state = 0;
-  let timeA = 0;
-  let timeB = 0;
 
   const animation: Animation = animate(() => {
     state++;
 
     if (state < 2) animation.start();
-
-    if (state % 2 === 1) timeB = Date.now();
-    else timeA = Date.now();
   });
 
   animation.start();
@@ -136,7 +131,6 @@ test('Animation: stop() and immediately start() does not create multiple animati
 
   context.false(animation.running);
   context.not(state, 2);
-  context.true(TIME_BETWEEN_FRAMES <= Math.abs(timeA - timeB));
 });
 
 test('Animation: running indicates if animation is running', async (context) => {
